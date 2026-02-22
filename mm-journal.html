@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — Medical Mike's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F3EE; --ivory-warm: #F0EBE3; --parchment: #E8E3DA; --cream: #FAF8F5; --white: #FFFFFF;
+    --earth-deep: #1C1A17; --earth: #2A2520; --earth-mid: #3E3830; --earth-warm: #5C5347; --soil: #6B5D4F; --soil-light: #8A7B6B; --clay: #9E8D7B; --sand: #C4B5A3;
+    --green-deep: #1E3A1E; --green: #2E5A2E; --green-mid: #4A7A45; --green-sage: #5A7A52; --green-pale: #A8C49E; --green-wash: #EEF2EB;
+    --gold: #C4A265; --gold-light: #D4B87A;
+    --text: #1C1A17; --text-mid: #4A4440; --text-muted: #7A7470; --text-light: #9E9890; --border: #DDD8CF; --border-light: #EDE8E0;
+    --font-serif: 'EB Garamond', Georgia, serif; --font-sans: 'Outfit', -apple-system, sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; }
+  .topbar { background: var(--earth-deep); color: var(--sand); text-align: center; padding: 0.55rem 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(246,243,238,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 1.2rem 3rem; }
+  .logo-img { display: block; height: 32px; width: auto; }
+  .logo-img--footer { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+  .nav-center { display: flex; gap: 2.5rem; }
+  .nav-center a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; }
+  .nav-right { display: flex; gap: 1.5rem; }
+  .nav-right a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 300; }
+  .journal-hero { padding: 5rem 3rem 3rem; text-align: center; max-width: 700px; margin: 0 auto; }
+  .journal-hero-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1rem; }
+  .journal-hero h1 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; color: var(--earth-deep); margin-bottom: 0.8rem; }
+  .journal-hero p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+  .featured { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; }
+  .featured-card { display: grid; grid-template-columns: 1.2fr 0.8fr; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; transition: border-color 0.3s; }
+  .featured-card:hover { border-color: var(--green-sage); }
+  .featured-img { background: var(--green-deep); min-height: 360px; display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; }
+  .featured-img img { max-height: 250px; width: auto; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2)); }
+  .featured-badge { position: absolute; top: 1.5rem; left: 1.5rem; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: rgba(0,0,0,0.3); padding: 0.3rem 0.8rem; border-radius: 100px; }
+  .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .featured-tag { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.8rem; }
+  .featured-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: var(--earth-deep); margin-bottom: 1rem; line-height: 1.25; }
+  .featured-excerpt { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.5rem; }
+  .featured-link { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-sage); font-weight: 500; }
+  .featured-link::after { content: ' \2192'; }
+  .posts { max-width: 1400px; margin: 0 auto; padding: 0 3rem 5rem; }
+  .posts-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+  .posts-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; }
+  .posts-filter { display: flex; gap: 1.5rem; }
+  .posts-filter a { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
+  .posts-filter a.active { color: var(--earth-deep); }
+  .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .post-card { transition: transform 0.3s; } .post-card:hover { transform: translateY(-4px); }
+  .post-card-img { background: var(--ivory-warm); border-radius: 10px; min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 2rem; margin-bottom: 1.2rem; }
+  .post-card-img.dark { background: var(--earth); } .post-card-img.green { background: var(--green-deep); }
+  .post-card-img img { max-height: 150px; width: auto; }
+  .post-card-tag { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.4rem; }
+  .post-card-title { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; color: var(--earth-deep); margin-bottom: 0.5rem; line-height: 1.3; }
+  .post-card-excerpt { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.8rem; }
+  .post-card-meta { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; color: var(--text-light); }
+  .newsletter-band { background: var(--earth-deep); padding: 4rem 3rem; text-align: center; }
+  .newsletter-band h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: var(--ivory); margin-bottom: 0.5rem; }
+  .newsletter-band p { font-size: 0.85rem; color: rgba(246,243,238,0.45); margin-bottom: 2rem; }
+  .newsletter-form { display: flex; gap: 0.75rem; max-width: 450px; margin: 0 auto; }
+  .newsletter-input { flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--earth-mid); background: transparent; color: var(--ivory); font-family: var(--font-sans); font-size: 0.85rem; outline: none; }
+  .newsletter-input::placeholder { color: var(--soil); }
+  .newsletter-submit { padding: 0.85rem 1.5rem; background: var(--ivory); color: var(--earth-deep); font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; border: none; cursor: pointer; }
+  .footer { background: var(--earth); padding: 4rem 3rem 2rem; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; color: var(--soil-light); margin: 1rem 0; }
+  .footer-phone { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold); }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soil-light); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a { font-size: 0.85rem; color: var(--clay); } .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom { border-top: 1px solid var(--earth-mid); padding-top: 1.5rem; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 0.68rem; color: var(--soil); }
+  @media (max-width: 900px) { .featured-card { grid-template-columns: 1fr; } .posts-grid { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; } .footer-top { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="topbar">Free Shipping on Orders Over $75 &middot; Grown &amp; Bottled in New York</div>
+<nav class="nav"><div class="nav-inner"><a href="/"><img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img"></a><div class="nav-center">
+      <a href="#collection">Shop</a>
+      <a href="mm-our-story.html">Our Story</a>
+      <a href="mm-lab-results.html">Lab Results</a>
+      <a href="mm-journal.html">Journal</a></div><div class="nav-right"><a href="/cart">Cart (0)</a></div></div></nav>
+
+<section class="journal-hero">
+  <div class="journal-hero-eyebrow">The Journal</div>
+  <h1>Learn Before You Buy</h1>
+  <p>Honest information about CBD, cannabinoids, and what actually works &mdash; without the marketing hype.</p>
+</section>
+
+<section class="featured">
+  <a href="/pages/is-cbg-better-than-cbd" class="featured-card">
+    <div class="featured-img">
+      <div class="featured-badge">Featured</div>
+      <img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?v=1729795687&width=600" alt="CBG vs CBD">
+    </div>
+    <div class="featured-content">
+      <div class="featured-tag">Education &middot; 5 min read</div>
+      <h2 class="featured-title">CBD vs CBG vs CBN: What's the Difference?</h2>
+      <p class="featured-excerpt">There are over 100 cannabinoids in the hemp plant. Three of them have the most research and the most practical applications. Here's what you need to know before choosing.</p>
+      <span class="featured-link">Read the Guide</span>
+    </div>
+  </a>
+</section>
+
+<section class="posts">
+  <div class="posts-header">
+    <h2 class="posts-title">All Posts</h2>
+    <div class="posts-filter"><a href="#" class="active">All</a><a href="#">Education</a><a href="#">Science</a><a href="#">Farm</a></div>
+  </div>
+  <div class="posts-grid">
+    <a href="#" class="post-card"><div class="post-card-img green"><img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?v=1747949823&width=400" alt=""></div><div class="post-card-tag">Education</div><h3 class="post-card-title">How to Read a CBD Lab Report (Without a Chemistry Degree)</h3><p class="post-card-excerpt">COAs can be confusing. Here's what to look for and what the numbers mean for your health.</p><div class="post-card-meta">4 min read &middot; Feb 2026</div></a>
+    <a href="#" class="post-card"><div class="post-card-img dark"><img src="https://medicalmikes.com/cdn/shop/files/cbn_2024.webp?v=1729795773&width=400" alt=""></div><div class="post-card-tag">Science</div><h3 class="post-card-title">CBN for Sleep: What the Research Actually Says</h3><p class="post-card-excerpt">Everyone claims CBN is the sleep cannabinoid. We looked at the studies to separate signal from noise.</p><div class="post-card-meta">6 min read &middot; Jan 2026</div></a>
+    <a href="#" class="post-card"><div class="post-card-img"><img src="https://medicalmikes.com/cdn/shop/files/medical_mikes_cbd_oil-min.png?v=1767059701&width=400" alt=""></div><div class="post-card-tag">Farm</div><h3 class="post-card-title">Why We Only Source From New York Farms</h3><p class="post-card-excerpt">Soil quality, growing conditions, and oversight. Why geography matters more than most brands admit.</p><div class="post-card-meta">3 min read &middot; Dec 2025</div></a>
+    <a href="#" class="post-card"><div class="post-card-img green"><img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?v=1729795687&width=400" alt=""></div><div class="post-card-tag">Education</div><h3 class="post-card-title">Full Spectrum vs Broad Spectrum vs Isolate</h3><p class="post-card-excerpt">The CBD industry loves jargon. Here's what these terms mean and which one you should care about.</p><div class="post-card-meta">4 min read &middot; Nov 2025</div></a>
+    <a href="#" class="post-card"><div class="post-card-img dark"><img src="https://medicalmikes.com/cdn/shop/files/GUMMYJARMOCKUP_gummy-min.png?v=1729795732&width=400" alt=""></div><div class="post-card-tag">Education</div><h3 class="post-card-title">Gummies vs Oil: Which Delivers CBD Better?</h3><p class="post-card-excerpt">Sublingual absorption vs digestion. Onset time, bioavailability, and which format suits your lifestyle.</p><div class="post-card-meta">3 min read &middot; Oct 2025</div></a>
+    <a href="#" class="post-card"><div class="post-card-img"><img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?v=1747949823&width=400" alt=""></div><div class="post-card-tag">Science</div><h3 class="post-card-title">The Entourage Effect: Why the Whole Plant Matters</h3><p class="post-card-excerpt">Cannabinoids, terpenes, and flavonoids working together. The science behind full-spectrum extraction.</p><div class="post-card-meta">5 min read &middot; Sep 2025</div></a>
+  </div>
+</section>
+
+<section class="newsletter-band">
+  <h2>Stay informed, not sold to.</h2>
+  <p>Occasional emails about CBD research, farm updates, and new products. No spam, ever.</p>
+  <div class="newsletter-form"><input type="email" class="newsletter-input" placeholder="Your email address"><button class="newsletter-submit">Subscribe</button></div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img logo-img--footer"><p>Organic full-spectrum CBD, grown and bottled on our New York farm. Four products. Nothing unnecessary.</p><a href="tel:9148615533" class="footer-phone">914.861.5533</a></div> <div class="footer-col"><h4>Shop</h4><ul><li><a href="mm-product-page.html">6000mg CBD Oil</a></li><li><a href="mm-product-cbg.html">2000mg CBG Oil</a></li><li><a href="mm-product-cbn.html">1200mg CBN Oil</a></li><li><a href="mm-product-gummies.html">CBD Gummies</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="mm-our-story.html">Our Story</a></li><li><a href="mm-lab-results.html">Lab Results</a></li><li><a href="mm-cbg-vs-cbd.html">CBG vs CBD</a></li><li><a href="/blogs/news">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="mm-contact">Contact</a></li><li><a href="/policies/shipping-policy">Shipping</a></li><li><a href="/policies/refund-policy">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+   </div><div class="footer-bottom"><span class="footer-copy">&copy; 2026 Medical Mike's. All Rights Reserved.</span><span class="footer-copy">Tarrytown, New York</span></div></div></footer>
+</body>
+</html>

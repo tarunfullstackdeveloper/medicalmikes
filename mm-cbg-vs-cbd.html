@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBG vs CBD: What's the Difference? — Medical Mike's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F3EE; --ivory-warm: #F0EBE3; --parchment: #E8E3DA; --cream: #FAF8F5; --white: #FFFFFF;
+    --earth-deep: #1C1A17; --earth: #2A2520; --earth-mid: #3E3830; --earth-warm: #5C5347; --soil: #6B5D4F; --soil-light: #8A7B6B; --clay: #9E8D7B; --sand: #C4B5A3;
+    --green-deep: #1E3A1E; --green: #2E5A2E; --green-mid: #4A7A45; --green-sage: #5A7A52; --green-leaf: #6B9E60; --green-pale: #A8C49E; --green-wash: #EEF2EB;
+    --gold: #C4A265; --gold-light: #D4B87A; --gold-muted: #A08550;
+    --text: #1C1A17; --text-mid: #4A4440; --text-muted: #7A7470; --text-light: #9E9890; --border: #DDD8CF; --border-light: #EDE8E0;
+    --font-serif: 'EB Garamond', Georgia, serif; --font-sans: 'Outfit', -apple-system, sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .topbar { background: var(--earth-deep); color: var(--sand); text-align: center; padding: 0.55rem 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(246,243,238,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 1.2rem 3rem; }
+  .logo-img { display: block; height: 32px; width: auto; }
+  .logo-img--footer { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+  .nav-center { display: flex; gap: 2.5rem; }
+  .nav-center a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; transition: color 0.3s; }
+  .nav-center a:hover { color: var(--text); }
+  .nav-right { display: flex; gap: 1.5rem; }
+  .nav-right a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 300; }
+
+  /* ═══ ARTICLE LAYOUT ═══ */
+  .article-hero { padding: 5rem 3rem 3rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .article-hero-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1rem; }
+  .article-hero h1 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; line-height: 1.15; color: var(--earth-deep); margin-bottom: 1rem; }
+  .article-hero h1 em { font-style: italic; color: var(--earth-warm); }
+  .article-hero-meta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text-light); }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .article-body p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+  .article-body h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--earth-deep);
+    margin: 3rem 0 1.2rem;
+    line-height: 1.2;
+  }
+  .article-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--earth-deep);
+    margin: 2rem 0 0.8rem;
+  }
+  .article-body .lead {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.7;
+    border-left: 3px solid var(--green-sage);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  /* ═══ COMPARISON TABLE ═══ */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    font-size: 0.88rem;
+  }
+  .compare-table th {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+  .compare-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { font-weight: 500; color: var(--earth-deep); }
+  .compare-table .highlight { background: var(--green-wash); }
+
+  /* ═══ PRODUCT CALLOUTS ═══ */
+  .product-callouts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  .callout {
+    display: grid;
+    grid-template-columns: 0.35fr 0.65fr;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .callout:hover { border-color: var(--green-sage); }
+  .callout-img {
+    background: var(--green-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .callout-img img { max-height: 120px; width: auto; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2)); }
+  .callout-info { padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .callout-tag { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.3rem; }
+  .callout-name { font-family: var(--font-serif); font-size: 1rem; color: var(--earth-deep); margin-bottom: 0.2rem; }
+  .callout-price { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+  .callout-btn {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--green-sage);
+    display: inline-block;
+  }
+  .callout-btn::after { content: ' →'; }
+
+  /* ═══ CTA BAND ═══ */
+  .cta-band { background: var(--green-deep); padding: 4rem 3rem; text-align: center; }
+  .cta-band h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; color: var(--ivory); margin-bottom: 1rem; }
+  .cta-band p { font-size: 0.9rem; color: rgba(246,243,238,0.5); margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; }
+  .cta-band a { display: inline-block; padding: 0.9rem 2.5rem; border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: all 0.3s; }
+  .cta-band a:hover { background: var(--gold); color: var(--earth-deep); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--earth); padding: 4rem 3rem 2rem; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; color: var(--soil-light); margin: 1rem 0; }
+  .footer-phone { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold); }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soil-light); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a { font-size: 0.85rem; color: var(--clay); transition: color 0.3s; }
+  .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom { border-top: 1px solid var(--earth-mid); padding-top: 1.5rem; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 0.68rem; color: var(--soil); }
+
+  @media (max-width: 900px) {
+    .article-hero h1 { font-size: 2rem; }
+    .product-callouts { grid-template-columns: 1fr; }
+    .callout { grid-template-columns: 0.3fr 0.7fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .compare-table { font-size: 0.78rem; }
+    .compare-table th, .compare-table td { padding: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders Over $75 · Grown & Bottled in New York</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html"><img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img"></a>
+    <div class="nav-center">
+      <a href="#collection">Shop</a>
+      <a href="mm-our-story.html">Our Story</a>
+      <a href="mm-lab-results.html">Lab Results</a>
+      <a href="mm-journal.html">Journal</a>
+    </div>
+    <div class="nav-right"><a href="/cart">Cart (0)</a></div>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-eyebrow">Education</div>
+  <h1>CBD vs CBG vs CBN:<br><em>What's the Difference?</em></h1>
+  <div class="article-hero-meta">5 min read · Updated February 2026</div>
+</section>
+
+<article class="article-body">
+  <p class="lead">There are over 100 cannabinoids in the hemp plant. Three of them — CBD, CBG, and CBN — have the most research behind them and the most practical applications for everyday wellness. Here's what you need to know.</p>
+
+  <h2>The Short Version</h2>
+  <p>CBD is the foundation — the most studied, most versatile cannabinoid. CBG is the "mother" cannabinoid that all others are born from, with emerging research around focus and mood. CBN is the sleep specialist — mildly sedative, most effective when paired with CBD for deep rest.</p>
+  <p>They're not competitors. They're teammates. Most people benefit from using different cannabinoids at different times of day based on what their body needs.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>CBD</th>
+        <th>CBG</th>
+        <th>CBN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Full Name</td>
+        <td>Cannabidiol</td>
+        <td>Cannabigerol</td>
+        <td>Cannabinol</td>
+      </tr>
+      <tr>
+        <td>Best For</td>
+        <td class="highlight">Daily wellness, calm, recovery</td>
+        <td>Focus, mood, gut health</td>
+        <td>Sleep, relaxation</td>
+      </tr>
+      <tr>
+        <td>When to Take</td>
+        <td>Anytime</td>
+        <td>Morning</td>
+        <td>Evening</td>
+      </tr>
+      <tr>
+        <td>Psychoactive?</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Research Level</td>
+        <td>Extensive</td>
+        <td>Emerging</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td>Our Product</td>
+        <td>6000mg CBD Oil</td>
+        <td>2000mg CBG + CBD Oil</td>
+        <td>1200mg CBN + CBD Oil</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>CBD: The Foundation</h2>
+  <p>Cannabidiol is the most abundant non-psychoactive cannabinoid in hemp. It interacts with your endocannabinoid system — a network of receptors that helps regulate sleep, mood, inflammation, and immune response. It doesn't get you high and it won't impair your function.</p>
+  <p>CBD is the most researched cannabinoid outside of THC, with studies exploring its potential for anxiety, chronic pain, inflammation, and neurological conditions. The FDA has approved one CBD-based medication (Epidiolex) for certain forms of epilepsy — the only cannabinoid-based drug with that distinction.</p>
+  <p>For most people, CBD is the starting point. It's the most versatile cannabinoid and works well as a daily baseline for general wellness.</p>
+
+  <h2>CBG: The Mother Cannabinoid</h2>
+  <p>All cannabinoids start as CBGA (cannabigerolic acid) — making CBG the literal precursor from which CBD, THC, and CBN are derived. That's why it's called the "mother" cannabinoid.</p>
+  <p>CBG is rarer and more expensive to produce because the plant converts most of its CBG into other cannabinoids as it matures. Harvesting it requires precise timing.</p>
+  <p>Early research suggests CBG may support focus, mood regulation, and gut health. Many of our customers use it as a morning alternative to caffeine — it provides a sense of alert clarity without jitters or an afternoon crash.</p>
+
+  <h2>CBN: The Sleep Cannabinoid</h2>
+  <p>CBN is created when THC ages and oxidizes — it's what happens to cannabis over time. Despite its origin, CBN is non-psychoactive at the concentrations found in hemp products.</p>
+  <p>What makes CBN interesting is its mildly sedative quality. Among all cannabinoids, it's the one most associated with sleep. Research is still developing, but anecdotal evidence is strong — and it's the most requested cannabinoid among people looking for a natural sleep aid.</p>
+  <p>We pair CBN with CBD in our 1200mg oil because the combination appears to be more effective than CBN alone. The CBD handles the calming, the CBN tips you into deeper rest.</p>
+
+  <h2>The Entourage Effect</h2>
+  <p>This is why we use full-spectrum extraction instead of isolating individual cannabinoids. The "entourage effect" is the theory that cannabinoids, terpenes, and flavonoids work better together than in isolation — each compound modulating and enhancing the others.</p>
+  <p>It's the same principle behind eating a whole orange versus taking a vitamin C pill. The full plant has more to offer than any single compound.</p>
+
+  <h2>Which Should You Start With?</h2>
+  <p>If you're new to cannabinoids, start with CBD. It's the most studied, most versatile, and easiest to dose. Our 6000mg oil gives you maximum strength with 200mg per serving.</p>
+  <p>If you already use CBD and want to target specific needs — morning focus or better sleep — add CBG or CBN to your routine. Many customers use all three at different times of day.</p>
+
+  <div class="product-callouts">
+    <a href="/products/6000mg-full-spectrum-cbd-oil" class="callout">
+      <div class="callout-img"><img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?v=1747949823&width=300" alt="CBD Oil"></div>
+      <div class="callout-info">
+        <div class="callout-tag">Best Seller</div>
+        <div class="callout-name">6000mg CBD Oil</div>
+        <div class="callout-price">$119.00</div>
+        <span class="callout-btn">Shop CBD</span>
+      </div>
+    </a>
+    <a href="/products/2000mg-full-spectrum-cbg-cbd-oil" class="callout">
+      <div class="callout-img"><img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?v=1729795687&width=300" alt="CBG Oil"></div>
+      <div class="callout-info">
+        <div class="callout-tag">Morning Focus</div>
+        <div class="callout-name">2000mg CBG + CBD Oil</div>
+        <div class="callout-price">$109.00</div>
+        <span class="callout-btn">Shop CBG</span>
+      </div>
+    </a>
+  </div>
+
+  <p><em>Disclaimer: These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any new supplement.</em></p>
+</article>
+
+<section class="cta-band">
+  <h2>Not sure where to start?</h2>
+  <p>Most customers begin with our 6000mg CBD Oil — our strongest and most popular formula.</p>
+  <a href="/collections/best-sellers">Shop the Collection</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img logo-img--footer">
+        <p>Organic full-spectrum CBD, grown and bottled on our New York farm. Four products. Nothing unnecessary.</p>
+        <a href="tel:9148615533" class="footer-phone">914.861.5533</a>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="mm-product-page.html">6000mg CBD Oil</a></li><li><a href="mm-product-cbg.html">2000mg CBG Oil</a></li><li><a href="mm-product-cbn.html">1200mg CBN Oil</a></li><li><a href="mm-product-gummies.html">CBD Gummies</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="mm-our-story.html">Our Story</a></li><li><a href="mm-lab-results.html">Lab Results</a></li><li><a href="mm-cbg-vs-cbd.html">CBG vs CBD</a></li><li><a href="/blogs/news">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="mm-contact">Contact</a></li><li><a href="/policies/shipping-policy">Shipping</a></li><li><a href="/policies/refund-policy">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Medical Mike's. All Rights Reserved.</span>
+      <span class="footer-copy">Tarrytown, New York</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Mike's — Organic Full-Spectrum CBD · New York</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F3EE;
+    --ivory-warm: #F0EBE3;
+    --parchment: #E8E3DA;
+    --cream: #FAF8F5;
+    --white: #FFFFFF;
+
+    --earth-deep: #1C1A17;
+    --earth: #2A2520;
+    --earth-mid: #3E3830;
+    --earth-warm: #5C5347;
+    --soil: #6B5D4F;
+    --soil-light: #8A7B6B;
+    --clay: #9E8D7B;
+    --sand: #C4B5A3;
+
+    --green-deep: #1E3A1E;
+    --green: #2E5A2E;
+    --green-mid: #4A7A45;
+    --green-sage: #5A7A52;
+    --green-leaf: #6B9E60;
+    --green-pale: #A8C49E;
+    --green-wash: #EEF2EB;
+
+    --gold: #C4A265;
+    --gold-light: #D4B87A;
+    --gold-muted: #A08550;
+
+    --text: #1C1A17;
+    --text-mid: #4A4440;
+    --text-muted: #7A7470;
+    --text-light: #9E9890;
+    --border: #DDD8CF;
+    --border-light: #EDE8E0;
+
+    --font-serif: 'EB Garamond', Georgia, serif;
+    --font-sans: 'Outfit', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--ivory);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* ═══ TOPBAR ═══ */
+  .topbar {
+    background: var(--earth-deep);
+    color: var(--sand);
+    text-align: center;
+    padding: 0.55rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* ═══ NAV ═══ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(246,243,238,0.96);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .nav.scrolled { box-shadow: 0 4px 30px rgba(28,26,23,0.04); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+  }
+  .logo-main {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--earth-deep);
+  }
+  .logo-sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.48rem;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    text-transform: uppercase;
+  }
+  .logo-link { display: flex; align-items: center; }
+  .logo-svg { display: block; height: auto; }
+  .logo-img { display: block; height: 32px; width: auto; }
+  .logo-img--footer { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+  .nav-center {
+    display: flex;
+    gap: 2.5rem;
+  }
+  .nav-center a {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+  .nav-center a:hover { color: var(--text); }
+  .nav-right { display: flex; gap: 1.5rem; }
+  .nav-right a {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+  .nav-right a:hover { color: var(--text); }
+
+  /* ═══ HERO — split layout with product image ═══ */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    background: var(--ivory);
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem;
+    position: relative;
+  }
+  .hero-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(90,122,82,0.04) 0%, transparent 60%);
+  }
+  .hero-content-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeInUp 0.8s ease both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--green-mid);
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--earth-deep);
+    margin-bottom: 1.8rem;
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+  .hero h1 em { font-style: italic; color: var(--green-mid); }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 440px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+  .hero-image {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--ivory-warm) 0%, var(--parchment) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(90,122,82,0.06) 0%, transparent 70%);
+  }
+  .hero-image img {
+    position: relative;
+    z-index: 2;
+    max-height: 70vh;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 60px rgba(28,26,23,0.12));
+    animation: fadeIn 1s ease 0.4s both;
+  }
+  .hero-image-badge {
+    position: absolute;
+    z-index: 3;
+    background: var(--white);
+    padding: 1rem 1.3rem;
+    box-shadow: 0 8px 30px rgba(28,26,23,0.08);
+    animation: fadeInUp 0.8s ease 0.7s both;
+  }
+  .hero-image-badge.badge-top {
+    top: 15%;
+    right: 8%;
+    border-radius: 14px;
+  }
+  .hero-image-badge.badge-bottom {
+    bottom: 15%;
+    left: 8%;
+    border-radius: 14px;
+  }
+  .hero-image-badge strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--green-mid);
+    margin-bottom: 0.15rem;
+  }
+  .hero-image-badge span {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ═══ BUTTONS ═══ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: all 0.4s ease;
+  }
+  .btn-dark {
+    background: var(--earth-deep);
+    color: var(--ivory);
+  }
+  .btn-dark:hover { background: var(--green); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-outline:hover { border-color: var(--earth-deep); }
+  .btn-green {
+    background: var(--green);
+    color: var(--white);
+  }
+  .btn-green:hover { background: var(--green-deep); }
+  .btn-ivory {
+    background: var(--ivory);
+    color: var(--earth-deep);
+    border: 1px solid var(--border);
+  }
+  .btn-ivory:hover { background: var(--parchment); }
+
+  /* ═══ RITUAL STRIP ═══ */
+  .ritual-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .ritual-item {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    transition: background 0.4s;
+  }
+  .ritual-item:last-child { border-right: none; }
+  .ritual-item:hover { background: var(--ivory); }
+  .ritual-time {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .ritual-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--earth-deep);
+    margin-bottom: 0.4rem;
+  }
+  .ritual-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.55;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* ═══ SHARED SECTION STYLES ═══ */
+  .stag {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .stag::before { content: ''; width: 20px; height: 1px; background: var(--text-light); }
+  .stag-gold { color: var(--gold); }
+  .stag-gold::before { background: var(--gold); }
+  .stitle {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--earth-deep);
+  }
+  .stitle em { font-style: italic; }
+  .stitle-light { color: var(--ivory); }
+
+  /* ═══ INGREDIENTS ═══ */
+  .ingredients {
+    padding: 7rem 3rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .ingredients-top {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .ingredients-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+    align-self: end;
+    padding-bottom: 0.3rem;
+  }
+  .mol-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .mol-card {
+    padding: 3rem;
+    border: 1px solid var(--border);
+    margin-right: -1px;
+    transition: background 0.4s;
+  }
+  .mol-card:hover { background: var(--cream); }
+  .mol-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .mol-badge {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.1rem; font-weight: 500;
+  }
+  .mol-badge-cbd { background: var(--green-pale); color: var(--green-deep); }
+  .mol-badge-cbg { background: var(--gold-light); color: var(--earth-deep); }
+  .mol-badge-cbn { background: #C4BCE0; color: #2A2540; }
+  .mol-formula {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+  }
+  .mol-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .mol-aka {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin-bottom: 1.2rem;
+  }
+  .mol-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .mol-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .mol-tag {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .mol-when {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .mol-philosophy {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 3rem;
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .mol-philosophy p {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .mol-philosophy p span { color: var(--green-mid); font-style: normal; }
+
+  /* ═══ PRODUCTS ═══ */
+  .products {
+    padding: 7rem 3rem;
+    background: var(--ivory);
+  }
+  .products-top {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pcard {
+    background: var(--white);
+    border: 1px solid var(--border);
+    transition: all 0.4s;
+    overflow: hidden;
+  }
+  .pcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(28,26,23,0.06);
+    border-color: var(--sand);
+  }
+  .pcard-img {
+    height: 300px;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .pcard-img img {
+    max-height: 260px;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+    filter: drop-shadow(0 10px 25px rgba(28,26,23,0.08));
+  }
+  .pcard:hover .pcard-img img { transform: scale(1.04); }
+  .pcard-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    background: var(--gold);
+    color: var(--earth-deep);
+    font-weight: 500;
+  }
+  .pcard-body { padding: 1.8rem; }
+  .pcard-type {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.4rem;
+  }
+  .pcard-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+  }
+  .pcard-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+  .pcard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+  .pcard-price {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .pcard-add {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--earth-deep);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .pcard-add:hover { background: var(--earth-deep); color: var(--ivory); border-color: var(--earth-deep); }
+
+  /* ═══ FARM ═══ */
+  .farm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 85vh;
+  }
+  .farm-visual {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg,
+        #0D1F0D 0%, #1E3A1E 15%, #2E5A2E 30%,
+        #4A7A45 45%, #6B5D4F 60%, #3E3830 80%, #1C1A17 100%
+      );
+  }
+  .farm-visual-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+  }
+  .farm-layers { margin-bottom: 3rem; }
+  .farm-layer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .farm-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .farm-layer-label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232,227,219,0.45);
+    flex: 1;
+  }
+  .farm-layer-value {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-muted);
+  }
+  .farm-stat-big {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--ivory);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .farm-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--soil-light);
+  }
+  .farm-content {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5rem;
+  }
+  .farm-content .stitle { margin-bottom: 2rem; }
+  .farm-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    max-width: 440px;
+  }
+  .farm-values {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .farm-value h4 {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--earth-deep);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  .farm-value p {
+    font-size: 0.8rem !important;
+    color: var(--text-light) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ═══ TRANSPARENCY ═══ */
+  .transparency {
+    padding: 7rem 3rem;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .trans-top {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+  }
+  .trans-top .stitle { max-width: 600px; margin-bottom: 1.5rem; }
+  .trans-top p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; max-width: 550px; }
+  .trans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+  .trans-card {
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border);
+    margin-right: -1px;
+    text-align: center;
+    transition: background 0.4s;
+  }
+  .trans-card:hover { background: var(--cream); }
+  .trans-card-check {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--green-mid);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem;
+  }
+  .trans-card-check svg { width: 14px; height: 14px; color: var(--white); }
+  .trans-card h3 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .trans-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+  .trans-metrics {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .trans-metric {
+    padding: 2rem 1rem;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .trans-metric:last-child { border-right: none; }
+  .trans-metric-val { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.25rem; }
+  .trans-metric-label { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+  .trans-metric-status { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-mid); }
+  .trans-cta { text-align: center; margin-top: 2.5rem; }
+
+  /* ═══ TESTIMONIALS ═══ */
+  .testimonials {
+    padding: 7rem 3rem;
+    background: var(--earth-deep);
+    color: var(--ivory);
+  }
+  .test-header { max-width: 1200px; margin: 0 auto 4rem; }
+  .test-header .stag { color: var(--gold); }
+  .test-header .stag::before { background: var(--gold); }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .test-card { background: var(--earth-deep); padding: 3rem; }
+  .test-stars { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
+  .test-star {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  .test-quote { font-family: var(--font-serif); font-size: 1rem; font-weight: 400; font-style: italic; line-height: 1.65; margin-bottom: 2rem; }
+  .test-author { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; }
+  .test-product { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.15em; color: var(--soil-light); margin-top: 0.3rem; }
+
+  /* ═══ JOURNAL ═══ */
+  .journal {
+    padding: 7rem 3rem;
+    background: var(--ivory);
+  }
+  .journal-header {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .jcard {
+    background: var(--white);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+  .jcard:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(28,26,23,0.05); }
+  .jcard-img { height: 200px; overflow: hidden; }
+  .jcard-img.ji-1 { background: linear-gradient(140deg, var(--green-deep), var(--green-mid)); }
+  .jcard-img.ji-2 { background: linear-gradient(140deg, var(--earth-mid), var(--soil-light)); }
+  .jcard-img.ji-3 { background: linear-gradient(140deg, var(--green-mid), var(--gold-muted)); }
+  .jcard-body { padding: 1.8rem; }
+  .jcard-date { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.18em; color: var(--text-light); margin-bottom: 0.6rem; }
+  .jcard h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; line-height: 1.4; margin-bottom: 0.6rem; }
+  .jcard p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; font-weight: 300; margin-bottom: 1rem; }
+  .jcard-link { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-mid); display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.3s; }
+  .jcard:hover .jcard-link { gap: 0.7rem; }
+
+  /* ═══ NEWSLETTER ═══ */
+  .newsletter {
+    padding: 6rem 3rem;
+    background: var(--green-deep);
+    text-align: center;
+    position: relative;
+  }
+  .newsletter-inner { max-width: 480px; margin: 0 auto; position: relative; z-index: 2; }
+  .newsletter .stag { justify-content: center; color: var(--green-leaf); }
+  .newsletter .stag::before { background: var(--green-leaf); }
+  .newsletter .stitle { color: var(--ivory); margin-bottom: 1rem; text-align: center; }
+  .newsletter-desc { font-size: 0.85rem; color: var(--green-pale); line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; }
+  .newsletter-form { display: flex; border: 1px solid rgba(168,196,158,0.2); }
+  .newsletter-input { flex: 1; padding: 1rem 1.5rem; background: rgba(255,255,255,0.04); border: none; color: var(--ivory); font-family: var(--font-sans); font-size: 0.78rem; outline: none; font-weight: 300; }
+  .newsletter-input::placeholder { color: rgba(168,196,158,0.4); }
+  .newsletter-btn { padding: 1rem 2rem; background: var(--ivory); color: var(--green-deep); font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; border: none; transition: all 0.3s; }
+  .newsletter-btn:hover { background: var(--gold-light); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--earth-deep); padding: 5rem 3rem 2rem; color: var(--soil-light); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; font-weight: 300; max-width: 280px; margin-top: 1rem; margin-bottom: 1.5rem; }
+  .footer-phone { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--gold-muted); transition: color 0.3s; }
+  .footer-phone:hover { color: var(--gold); }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory); margin-bottom: 1.2rem; font-weight: 500; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.55rem; }
+  .footer-col a { font-size: 0.8rem; font-weight: 300; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; margin-top: 2rem; }
+  .footer-copy { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.15em; color: var(--earth-warm); }
+  .footer-legal { display: flex; gap: 1.5rem; }
+  .footer-legal a { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.1em; color: var(--earth-warm); transition: color 0.3s; }
+  .footer-legal a:hover { color: var(--soil-light); }
+  .footer-fda { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.68rem; color: var(--earth-warm); font-weight: 300; line-height: 1.5; }
+
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { min-height: 50vh; }
+    .hero-content { padding: 4rem 3rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .farm { grid-template-columns: 1fr; }
+    .farm-visual { min-height: 50vh; }
+    .farm-content { padding: 4rem 3rem; }
+    .ingredients-top { grid-template-columns: 1fr; }
+    .trans-grid { grid-template-columns: repeat(2, 1fr); }
+    .trans-metrics { grid-template-columns: repeat(3, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-center { display: none; }
+    .nav-inner { padding: 1rem 1.5rem; }
+    .hero-content { padding: 3rem 1.5rem; }
+    .ritual-strip { grid-template-columns: 1fr; }
+    .ritual-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .mol-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .test-grid { grid-template-columns: 1fr; }
+    .journal-grid { grid-template-columns: 1fr; }
+    .trans-grid { grid-template-columns: 1fr; }
+    .trans-metrics { grid-template-columns: repeat(2, 1fr); }
+    .farm-values { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .journal-header, .products-top { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .newsletter-form { flex-direction: column; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-image-badge { display: none; }
+    section, .ingredients, .products, .transparency, .testimonials, .journal { padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders Over $75 · Grown & Bottled in New York</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-link">
+      <img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img">
+    </a>
+    <div class="nav-center">
+      <a href="#collection">Shop</a>
+      <a href="mm-our-story.html">Our Story</a>
+      <a href="mm-lab-results.html">Lab Results</a>
+      <a href="mm-journal.html">Journal</a>
+    </div>
+    <div class="nav-right">
+      <a href="/account">Account</a>
+      <a href="/cart">Cart (0)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-content-inner">
+      <div class="hero-eyebrow">Organic · Full Spectrum · New York</div>
+      <h1>From the Soil,<br><em>the Remedy</em></h1>
+      <p class="hero-desc">We grow organic hemp on our New York farm and extract the full plant — CBD, CBG, CBN, and every beneficial terpene. Nothing added. Nothing hidden.</p>
+      <div class="hero-ctas">
+        <a href="#collection" class="btn btn-dark">The Collection</a>
+        <a href="#ingredients" class="btn btn-outline">What's Inside →</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?crop=center&height=900&v=1747949823&width=900" alt="6000mg Full Spectrum CBD Oil">
+    <div class="hero-image-badge badge-top">
+      <strong>99.7%</strong>
+      <span>Purity Tested</span>
+    </div>
+    <div class="hero-image-badge badge-bottom">
+      <strong>6,000mg</strong>
+      <span>Full Spectrum CBD</span>
+    </div>
+  </div>
+</section>
+
+<div class="ritual-strip">
+  <div class="ritual-item reveal">
+    <div class="ritual-time">Morning Ritual</div>
+    <h3 class="ritual-name">CBG Oil</h3>
+    <p class="ritual-desc">Clarity, focus, and calm energy to replace your second cup of coffee.</p>
+  </div>
+  <div class="ritual-item reveal">
+    <div class="ritual-time">Daily Ritual</div>
+    <h3 class="ritual-name">CBD Oil</h3>
+    <p class="ritual-desc">Full-spectrum relief, recovery, and balance for everyday wellness.</p>
+  </div>
+  <div class="ritual-item reveal">
+    <div class="ritual-time">Evening Ritual</div>
+    <h3 class="ritual-name">CBN Oil</h3>
+    <p class="ritual-desc">A gentle, naturally sedative formula for deep, restorative rest.</p>
+  </div>
+</div>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-top">
+    <div>
+      <div class="stag">The Science</div>
+      <h2 class="stitle">Three Molecules.<br><em>Each With a Purpose.</em></h2>
+    </div>
+    <p class="ingredients-subtitle">Full-spectrum means we keep the whole plant intact — not isolates, not synthetics. Every cannabinoid, every terpene, working together the way nature intended.</p>
+  </div>
+  <div class="mol-grid">
+    <div class="mol-card reveal">
+      <div class="mol-card-top"><div class="mol-badge mol-badge-cbd">CBD</div><span class="mol-formula">C₂₁H₃₀O₂</span></div>
+      <h3 class="mol-name">Cannabidiol</h3>
+      <div class="mol-aka">The Foundation</div>
+      <p class="mol-desc">The most researched cannabinoid. CBD interacts with your endocannabinoid system to support calm, reduce inflammation, and restore homeostasis — without psychoactive effects.</p>
+      <div class="mol-tags"><span class="mol-tag">Stress Relief</span><span class="mol-tag">Inflammation</span><span class="mol-tag">Recovery</span><span class="mol-tag">Balance</span></div>
+      <div class="mol-when">↳ Anytime · Daily Wellness</div>
+    </div>
+    <div class="mol-card reveal">
+      <div class="mol-card-top"><div class="mol-badge mol-badge-cbg">CBG</div><span class="mol-formula">C₂₁H₃₂O₂</span></div>
+      <h3 class="mol-name">Cannabigerol</h3>
+      <div class="mol-aka">The Mother Cannabinoid</div>
+      <p class="mol-desc">The precursor from which all cannabinoids are born. Emerging research links CBG to improved focus, mood regulation, and gut health. Clarity — without caffeine's crash.</p>
+      <div class="mol-tags"><span class="mol-tag">Focus</span><span class="mol-tag">Creativity</span><span class="mol-tag">Mood</span><span class="mol-tag">Gut Health</span></div>
+      <div class="mol-when">↳ Morning · Clarity + Uplift</div>
+    </div>
+    <div class="mol-card reveal">
+      <div class="mol-card-top"><div class="mol-badge mol-badge-cbn">CBN</div><span class="mol-formula">C₂₁H₂₆O₂</span></div>
+      <h3 class="mol-name">Cannabinol</h3>
+      <div class="mol-aka">The Sleep Cannabinoid</div>
+      <p class="mol-desc">Formed as THC ages, CBN is the most naturally sedative cannabinoid we've found. Paired with CBD, it creates a deep wind-down — without morning grogginess.</p>
+      <div class="mol-tags"><span class="mol-tag">Deep Sleep</span><span class="mol-tag">Relaxation</span><span class="mol-tag">Anti-Inflammatory</span></div>
+      <div class="mol-when">↳ Evening · Restorative Sleep</div>
+    </div>
+  </div>
+  <div class="mol-philosophy reveal">
+    <p>We believe in <span>radical simplicity</span>. No proprietary blends. No filler ingredients. No mystery compounds. Just the full plant — extracted, tested, and bottled. If it doesn't belong in your body, it doesn't belong in our oil.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="collection">
+  <div class="products-top">
+    <div>
+      <div class="stag">The Collection</div>
+      <h2 class="stitle">Four Products. <em>Nothing Unnecessary.</em></h2>
+    </div>
+    <a href="/collections/best-sellers" class="btn btn-outline">View All →</a>
+  </div>
+  <div class="products-grid">
+    <a href="/products/6000mg-full-spectrum-cbd-oil" class="pcard reveal">
+      <div class="pcard-img">
+        <span class="pcard-tag">Best Seller</span>
+        <img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?crop=center&height=600&v=1747949823&width=600" alt="6000mg CBD Oil">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-type">Full Spectrum CBD</div>
+        <h3 class="pcard-name">6000mg CBD Oil</h3>
+        <p class="pcard-desc">Maximum potency. Our most concentrated formula for serious relief and daily balance.</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">$119</span>
+          <button class="pcard-add">Add to Cart</button>
+        </div>
+      </div>
+    </a>
+    <a href="/products/2000mg-full-spectrum-cbg-cbd-oil" class="pcard reveal">
+      <div class="pcard-img">
+        <img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?crop=center&height=600&v=1729795687&width=600" alt="2000mg CBG Oil">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-type">CBG + CBD · Full Spectrum</div>
+        <h3 class="pcard-name">2000mg CBG Oil</h3>
+        <p class="pcard-desc">Morning clarity. The mother cannabinoid for focus, creativity, and uplift.</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">$109</span>
+          <button class="pcard-add">Add to Cart</button>
+        </div>
+      </div>
+    </a>
+    <a href="/products/full-spectrum-cbn-cbd-oil" class="pcard reveal">
+      <div class="pcard-img">
+        <img src="https://medicalmikes.com/cdn/shop/files/cbn_2024.webp?crop=center&height=600&v=1729795773&width=600" alt="1200mg CBN Oil">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-type">CBN + CBD · Full Spectrum</div>
+        <h3 class="pcard-name">1200mg CBN Oil</h3>
+        <p class="pcard-desc">Deep sleep. A gentle, restorative formula for the best rest of your life.</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">$89</span>
+          <button class="pcard-add">Add to Cart</button>
+        </div>
+      </div>
+    </a>
+    <a href="/products/full-spectrum-cbd-gummies" class="pcard reveal">
+      <div class="pcard-img">
+        <img src="https://medicalmikes.com/cdn/shop/files/GUMMYJARMOCKUP_gummy-min.png?crop=center&height=600&v=1729795732&width=600" alt="CBD Gummies">
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-type">Full Spectrum CBD</div>
+        <h3 class="pcard-name">750mg CBD Gummies</h3>
+        <p class="pcard-desc">Calm, anywhere. Precise dosing in a format you look forward to.</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">$69</span>
+          <button class="pcard-add">Add to Cart</button>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FARM -->
+<section class="farm" id="farm">
+  <div class="farm-visual">
+    <div class="farm-visual-content">
+      <div class="farm-layers">
+        <div class="farm-layer"><div class="farm-dot" style="background:#E8DCC8"></div><span class="farm-layer-label">New York Sunlight</span><span class="farm-layer-value">Natural Spectrum</span></div>
+        <div class="farm-layer"><div class="farm-dot" style="background:#6B9E60"></div><span class="farm-layer-label">Organic Hemp Canopy</span><span class="farm-layer-value">No Pesticides</span></div>
+        <div class="farm-layer"><div class="farm-dot" style="background:#4A7A45"></div><span class="farm-layer-label">Full-Spectrum Extraction</span><span class="farm-layer-value">Whole Plant</span></div>
+        <div class="farm-layer"><div class="farm-dot" style="background:#8A7B6B"></div><span class="farm-layer-label">Root System</span><span class="farm-layer-value">Deep Nutrient Draw</span></div>
+        <div class="farm-layer"><div class="farm-dot" style="background:#6B5D4F"></div><span class="farm-layer-label">New York Soil</span><span class="farm-layer-value">Tested + Clean</span></div>
+      </div>
+      <div class="farm-stat-big">100%</div>
+      <div class="farm-stat-label">Seed-to-Shelf Traceability</div>
+    </div>
+  </div>
+  <div class="farm-content">
+    <div class="stag stag-gold">Origin</div>
+    <h2 class="stitle">The Soil Is <em>the Product</em></h2>
+    <p>Most CBD brands are bottlers — they buy bulk distillate from unknown farms and slap a label on it. We're farmers first. We grow our own organic hemp on New York soil, controlling every variable from soil composition to harvest timing.</p>
+    <p>The soil determines the plant. The plant determines the oil. And the oil is what you put in your body.</p>
+    <div class="farm-values">
+      <div class="farm-value"><h4>No Pesticides</h4><p>Organic farming practices from seed to harvest.</p></div>
+      <div class="farm-value"><h4>Small Batch</h4><p>Every extraction is limited run. Quality doesn't scale infinitely.</p></div>
+      <div class="farm-value"><h4>Full Spectrum</h4><p>The whole plant intact — CBD, CBG, CBN, terpenes, all of it.</p></div>
+      <div class="farm-value"><h4>Farm Bill Compliant</h4><p>Below 0.3% THC, verified every batch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY -->
+<section class="transparency" id="transparency">
+  <div class="trans-top">
+    <div class="stag">Transparency</div>
+    <h2 class="stitle">If You Can't Read the Lab Report,<br><em>Don't Buy the Oil.</em></h2>
+    <p style="margin-top:1.5rem;">We publish third-party lab results for every product, every batch. Trust is built on proof, not promises.</p>
+  </div>
+  <div class="trans-grid">
+    <div class="trans-card reveal"><div class="trans-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Potency Verified</h3><p>What's on the label is in the bottle. Independently verified.</p></div>
+    <div class="trans-card reveal"><div class="trans-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Purity Tested</h3><p>Screened for pesticides, heavy metals, solvents & contaminants.</p></div>
+    <div class="trans-card reveal"><div class="trans-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Full Profile</h3><p>Complete cannabinoid and terpene breakdown. Nothing hidden.</p></div>
+    <div class="trans-card reveal"><div class="trans-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Farm Bill Compliant</h3><p>Below 0.3% THC, verified independently every batch.</p></div>
+  </div>
+  <div class="trans-metrics reveal">
+    <div class="trans-metric"><div class="trans-metric-val">5,940</div><div class="trans-metric-label">mg CBD</div><div class="trans-metric-status">✓ Verified</div></div>
+    <div class="trans-metric"><div class="trans-metric-val">89</div><div class="trans-metric-label">mg CBG</div><div class="trans-metric-status">✓ Verified</div></div>
+    <div class="trans-metric"><div class="trans-metric-val">42</div><div class="trans-metric-label">mg CBN</div><div class="trans-metric-status">✓ Verified</div></div>
+    <div class="trans-metric"><div class="trans-metric-val">&lt;0.3</div><div class="trans-metric-label">% THC</div><div class="trans-metric-status">✓ Compliant</div></div>
+    <div class="trans-metric"><div class="trans-metric-val">ND</div><div class="trans-metric-label">Pesticides</div><div class="trans-metric-status">✓ Clean</div></div>
+    <div class="trans-metric"><div class="trans-metric-val">ND</div><div class="trans-metric-label">Heavy Metals</div><div class="trans-metric-status">✓ Clean</div></div>
+  </div>
+  <div class="trans-cta reveal"><a href="/pages/lab-results" class="btn btn-dark">View Full Lab Reports →</a></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-header"><div class="stag stag-gold">Testimonials</div><h2 class="stitle stitle-light">In Their <em>Words</em></h2></div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div>
+      <p class="test-quote">I've tried a dozen CBD brands. This is the first one where I actually felt the difference. The 6000mg is the real deal.</p>
+      <div class="test-author">Sarah M.</div><div class="test-product">6000mg CBD Oil · Verified Buyer</div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div>
+      <p class="test-quote">The CBN oil completely changed my sleep. I fall asleep faster and actually stay asleep. No grogginess in the morning.</p>
+      <div class="test-author">James R.</div><div class="test-product">1200mg CBN Oil · Verified Buyer</div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars"><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div><div class="test-star"></div></div>
+      <p class="test-quote">Replaced my second coffee with CBG oil. More focus, no jitters, no crash. My whole team noticed the difference.</p>
+      <div class="test-author">David L.</div><div class="test-product">2000mg CBG Oil · Verified Buyer</div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal" id="journal">
+  <div class="journal-header"><div><div class="stag">The Journal</div><h2 class="stitle">Wellness, <em>Demystified</em></h2></div><a href="/blogs/news" class="btn btn-outline">All Articles →</a></div>
+  <div class="journal-grid">
+    <a href="/pages/is-cbg-better-than-cbd" class="jcard reveal"><div class="jcard-img ji-1"></div><div class="jcard-body"><div class="jcard-date">January 2026 · Research</div><h3>Is CBG Better Than CBD? What the Science Says</h3><p>A clear breakdown of the latest studies and what they mean for your routine.</p><span class="jcard-link">Read →</span></div></a>
+    <a href="/blogs/news" class="jcard reveal"><div class="jcard-img ji-2"></div><div class="jcard-body"><div class="jcard-date">December 2025 · Guide</div><h3>How to Find Your CBD Dosage Without the Guesswork</h3><p>Start low, go slow — plus the factors that affect how much you need.</p><span class="jcard-link">Read →</span></div></a>
+    <a href="/blogs/new-york-marijuana-legalization-everything-you-need-to-know-live-updates" class="jcard reveal"><div class="jcard-img ji-3"></div><div class="jcard-body"><div class="jcard-date">November 2025 · Industry</div><h3>NY Cannabis Legalization: What It Means for Hemp</h3><p>Live updates on New York's evolving landscape and your wellness choices.</p><span class="jcard-link">Read →</span></div></a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div class="stag" style="justify-content:center;color:#6B9E60;"><span style="width:20px;height:1px;background:#6B9E60;display:inline-block;margin-right:1rem;"></span>Newsletter</div>
+    <h2 class="stitle stitle-light" style="text-align:center;">Honest Wellness.<br><em>No Noise.</em></h2>
+    <p class="newsletter-desc">New drops, research breakdowns, subscriber-only pricing. One email a week. Unsubscribe anytime.</p>
+    <div class="newsletter-form"><input type="email" class="newsletter-input" placeholder="Your email address"><button class="newsletter-btn">Subscribe</button></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img logo-img--footer">
+        <p>Organic full-spectrum CBD, grown and bottled on our New York farm. Four products. Nothing unnecessary.</p>
+        <a href="tel:9148615533" class="footer-phone">914.861.5533</a>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="mm-product-page.html">6000mg CBD Oil</a></li><li><a href="mm-product-cbg.html">2000mg CBG Oil</a></li><li><a href="mm-product-cbn.html">1200mg CBN Oil</a></li><li><a href="mm-product-gummies.html">CBD Gummies</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="mm-our-story.html">Our Story</a></li><li><a href="mm-lab-results.html">Lab Results</a></li><li><a href="mm-cbg-vs-cbd.html">CBG vs CBD</a></li><li><a href="/blogs/news">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="mm-contact">Contact</a></li><li><a href="/policies/shipping-policy">Shipping</a></li><li><a href="/policies/refund-policy">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Medical Mike's. All Rights Reserved.</span>
+      <div class="footer-legal"><a href="/policies/privacy-policy">Privacy</a><a href="/policies/terms-of-service">Terms</a></div>
+    </div>
+    <div class="footer-fda">FDA Disclaimer: These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+  });
+</script>
+</body>
+</html>

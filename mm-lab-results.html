@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Results — Medical Mike's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F3EE; --ivory-warm: #F0EBE3; --parchment: #E8E3DA; --cream: #FAF8F5; --white: #FFFFFF;
+    --earth-deep: #1C1A17; --earth: #2A2520; --earth-mid: #3E3830; --earth-warm: #5C5347; --soil: #6B5D4F; --soil-light: #8A7B6B; --clay: #9E8D7B; --sand: #C4B5A3;
+    --green-deep: #1E3A1E; --green: #2E5A2E; --green-mid: #4A7A45; --green-sage: #5A7A52; --green-leaf: #6B9E60; --green-pale: #A8C49E; --green-wash: #EEF2EB;
+    --gold: #C4A265; --gold-light: #D4B87A; --gold-muted: #A08550;
+    --text: #1C1A17; --text-mid: #4A4440; --text-muted: #7A7470; --text-light: #9E9890; --border: #DDD8CF; --border-light: #EDE8E0;
+    --font-serif: 'EB Garamond', Georgia, serif; --font-sans: 'Outfit', -apple-system, sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .topbar { background: var(--earth-deep); color: var(--sand); text-align: center; padding: 0.55rem 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(246,243,238,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 1.2rem 3rem; }
+  .logo-img { display: block; height: 32px; width: auto; }
+  .logo-img--footer { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+  .nav-center { display: flex; gap: 2.5rem; }
+  .nav-center a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; transition: color 0.3s; }
+  .nav-center a:hover { color: var(--text); }
+  .nav-right { display: flex; gap: 1.5rem; }
+  .nav-right a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 300; }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero { padding: 5rem 3rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .page-hero-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1rem; }
+  .page-hero h1 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; color: var(--earth-deep); margin-bottom: 1rem; line-height: 1.15; }
+  .page-hero h1 em { font-style: italic; color: var(--earth-warm); }
+  .page-hero p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; max-width: 550px; margin: 0 auto; }
+
+  /* ═══ TRUST METRICS ═══ */
+  .trust-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    padding: 0 3rem;
+    gap: 1.5rem;
+  }
+  .metric {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--cream);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+  .metric-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--green-wash);
+    color: var(--green-sage);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1rem;
+  }
+  .metric-title { font-family: var(--font-serif); font-size: 1.05rem; color: var(--earth-deep); margin-bottom: 0.4rem; }
+  .metric-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ═══ LAB RESULTS GRID ═══ */
+  .lab-section { max-width: 1400px; margin: 0 auto; padding: 0 3rem 5rem; }
+  .lab-section-header { text-align: center; margin-bottom: 3rem; }
+  .lab-section-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.5rem; }
+  .lab-section-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; }
+
+  .lab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .lab-card {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    transition: border-color 0.3s;
+  }
+  .lab-card:hover { border-color: var(--green-sage); }
+  .lab-card-img {
+    background: var(--green-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 250px;
+  }
+  .lab-card-img img { max-height: 160px; width: auto; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2)); }
+  .lab-card-info { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+  .lab-card-tag { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.5rem; }
+  .lab-card-name { font-family: var(--font-serif); font-size: 1.2rem; color: var(--earth-deep); margin-bottom: 0.5rem; }
+  .lab-card-specs { margin-bottom: 1.5rem; }
+  .lab-card-spec {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.78rem;
+  }
+  .lab-card-spec:last-child { border-bottom: none; }
+  .lab-spec-label { color: var(--text-muted); }
+  .lab-spec-value { color: var(--earth-deep); font-weight: 500; }
+  .lab-spec-pass { color: var(--green-sage); font-weight: 500; }
+  .lab-card-btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid var(--green-sage);
+    color: var(--green-sage);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .lab-card-btn:hover { background: var(--green-sage); color: var(--ivory); }
+
+  /* ═══ PROCESS SECTION ═══ */
+  .process {
+    background: var(--earth-deep);
+    padding: 5rem 3rem;
+  }
+  .process-inner { max-width: 1400px; margin: 0 auto; }
+  .process-header { text-align: center; margin-bottom: 3rem; }
+  .process-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-pale); margin-bottom: 0.5rem; }
+  .process-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: var(--ivory); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+  .process-step { text-align: center; }
+  .step-num { font-family: var(--font-serif); font-size: 2rem; font-style: italic; color: var(--gold); margin-bottom: 0.75rem; }
+  .step-title { font-family: var(--font-serif); font-size: 1.05rem; color: var(--ivory); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.78rem; color: rgba(246,243,238,0.45); line-height: 1.6; }
+
+  /* ═══ CONTACT ═══ */
+  .lab-contact {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    text-align: center;
+  }
+  .lab-contact p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; max-width: 550px; margin: 0 auto; }
+  .lab-contact a { color: var(--green-sage); text-decoration: underline; }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--earth); padding: 4rem 3rem 2rem; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; color: var(--soil-light); margin: 1rem 0; }
+  .footer-phone { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold); }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soil-light); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a { font-size: 0.85rem; color: var(--clay); transition: color 0.3s; }
+  .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom { border-top: 1px solid var(--earth-mid); padding-top: 1.5rem; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 0.68rem; color: var(--soil); }
+
+  @media (max-width: 900px) {
+    .trust-metrics { grid-template-columns: 1fr 1fr; }
+    .lab-grid { grid-template-columns: 1fr; }
+    .lab-card { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders Over $75 · Grown & Bottled in New York</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/"><img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img"></a>
+    <div class="nav-center">
+      <a href="#collection">Shop</a>
+      <a href="mm-our-story.html">Our Story</a>
+      <a href="mm-lab-results.html">Lab Results</a>
+      <a href="mm-journal.html">Journal</a>
+    </div>
+    <div class="nav-right"><a href="/cart">Cart (0)</a></div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Transparency</div>
+  <h1>If you can't read the lab report, <em>don't buy the oil.</em></h1>
+  <p>Every batch of every product is independently tested by third-party laboratories. We publish the results because you have a right to know exactly what you're putting in your body.</p>
+</section>
+
+<div class="trust-metrics">
+  <div class="metric">
+    <div class="metric-icon">✓</div>
+    <div class="metric-title">Potency Verified</div>
+    <div class="metric-desc">Independent labs confirm exact cannabinoid content. Our 6000mg oil contains 6000mg. Period.</div>
+  </div>
+  <div class="metric">
+    <div class="metric-icon">✓</div>
+    <div class="metric-title">Purity Tested</div>
+    <div class="metric-desc">Screened for pesticides, heavy metals, residual solvents, and microbial contaminants.</div>
+  </div>
+  <div class="metric">
+    <div class="metric-icon">✓</div>
+    <div class="metric-title">Full Profile</div>
+    <div class="metric-desc">Complete cannabinoid and terpene breakdown published for every product.</div>
+  </div>
+  <div class="metric">
+    <div class="metric-icon">✓</div>
+    <div class="metric-title">Farm Bill Compliant</div>
+    <div class="metric-desc">Full-spectrum with trace THC below the 0.3% federal limit. Every batch verified.</div>
+  </div>
+</div>
+
+<section class="lab-section">
+  <div class="lab-section-header">
+    <div class="lab-section-eyebrow">Certificates of Analysis</div>
+    <h2 class="lab-section-title">Lab Reports by Product</h2>
+  </div>
+  <div class="lab-grid">
+    <!-- CBD -->
+    <div class="lab-card">
+      <div class="lab-card-img"><img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?v=1747949823&width=400" alt="6000mg CBD Oil"></div>
+      <div class="lab-card-info">
+        <div class="lab-card-tag">Full Spectrum CBD</div>
+        <div class="lab-card-name">6000mg CBD Oil</div>
+        <div class="lab-card-specs">
+          <div class="lab-card-spec"><span class="lab-spec-label">CBD Content</span><span class="lab-spec-value">6,000mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">THC</span><span class="lab-spec-pass">&lt;0.3% ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Pesticides</span><span class="lab-spec-pass">ND ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Heavy Metals</span><span class="lab-spec-pass">Pass ✓</span></div>
+        </div>
+        <a href="#" class="lab-card-btn">View Full Report</a>
+      </div>
+    </div>
+    <!-- CBG -->
+    <div class="lab-card">
+      <div class="lab-card-img"><img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?v=1729795687&width=400" alt="CBG Oil"></div>
+      <div class="lab-card-info">
+        <div class="lab-card-tag">Full Spectrum CBG</div>
+        <div class="lab-card-name">2000mg CBG + CBD Oil</div>
+        <div class="lab-card-specs">
+          <div class="lab-card-spec"><span class="lab-spec-label">CBG Content</span><span class="lab-spec-value">2,000mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">THC</span><span class="lab-spec-pass">&lt;0.3% ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Pesticides</span><span class="lab-spec-pass">ND ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Heavy Metals</span><span class="lab-spec-pass">Pass ✓</span></div>
+        </div>
+        <a href="#" class="lab-card-btn">View Full Report</a>
+      </div>
+    </div>
+    <!-- CBN -->
+    <div class="lab-card">
+      <div class="lab-card-img"><img src="https://medicalmikes.com/cdn/shop/files/cbn_2024.webp?v=1729795773&width=400" alt="CBN Oil"></div>
+      <div class="lab-card-info">
+        <div class="lab-card-tag">Full Spectrum CBN</div>
+        <div class="lab-card-name">1200mg CBD + CBN Oil</div>
+        <div class="lab-card-specs">
+          <div class="lab-card-spec"><span class="lab-spec-label">CBN Content</span><span class="lab-spec-value">300mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">CBD Content</span><span class="lab-spec-value">900mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">THC</span><span class="lab-spec-pass">&lt;0.3% ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Heavy Metals</span><span class="lab-spec-pass">Pass ✓</span></div>
+        </div>
+        <a href="#" class="lab-card-btn">View Full Report</a>
+      </div>
+    </div>
+    <!-- Gummies -->
+    <div class="lab-card">
+      <div class="lab-card-img" style="background: var(--earth);"><img src="https://medicalmikes.com/cdn/shop/files/GUMMYJARMOCKUP_gummy-min.png?v=1729795732&width=400" alt="CBD Gummies"></div>
+      <div class="lab-card-info">
+        <div class="lab-card-tag">Full Spectrum Gummies</div>
+        <div class="lab-card-name">750mg CBD Gummies</div>
+        <div class="lab-card-specs">
+          <div class="lab-card-spec"><span class="lab-spec-label">CBD Content</span><span class="lab-spec-value">750mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Per Gummy</span><span class="lab-spec-value">25mg</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">THC</span><span class="lab-spec-pass">&lt;0.3% ✓</span></div>
+          <div class="lab-card-spec"><span class="lab-spec-label">Pesticides</span><span class="lab-spec-pass">ND ✓</span></div>
+        </div>
+        <a href="#" class="lab-card-btn">View Full Report</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="process-eyebrow">Our Testing Process</div>
+      <h2 class="process-title">From Harvest to Your Hands</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Harvest</div>
+        <div class="step-desc">Organic hemp harvested from our New York partner farms at peak cannabinoid maturity.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Extract</div>
+        <div class="step-desc">Full-spectrum extraction preserving the complete plant profile — cannabinoids, terpenes, and flavonoids.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Test</div>
+        <div class="step-desc">Independent third-party labs verify potency and screen for contaminants before any product is bottled.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Publish</div>
+        <div class="step-desc">Full certificates of analysis posted here. No summaries, no cherry-picking — the complete lab report.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lab-contact">
+  <p>Questions about our testing or want to see additional documentation? Contact us at <a href="mailto:hello@medicalmikes.com">hello@medicalmikes.com</a> or call <a href="tel:9148615533">914.861.5533</a>.</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img logo-img--footer">
+        <p>Organic full-spectrum CBD, grown and bottled on our New York farm. Four products. Nothing unnecessary.</p>
+        <a href="tel:9148615533" class="footer-phone">914.861.5533</a>
+      </div>
+       <div class="footer-col"><h4>Shop</h4><ul><li><a href="mm-product-page.html">6000mg CBD Oil</a></li><li><a href="mm-product-cbg.html">2000mg CBG Oil</a></li><li><a href="mm-product-cbn.html">1200mg CBN Oil</a></li><li><a href="mm-product-gummies.html">CBD Gummies</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="mm-our-story.html">Our Story</a></li><li><a href="mm-lab-results.html">Lab Results</a></li><li><a href="mm-cbg-vs-cbd.html">CBG vs CBD</a></li><li><a href="/blogs/news">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="mm-contact">Contact</a></li><li><a href="/policies/shipping-policy">Shipping</a></li><li><a href="/policies/refund-policy">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+   </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Medical Mike's. All Rights Reserved.</span>
+      <span class="footer-copy">Tarrytown, New York</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

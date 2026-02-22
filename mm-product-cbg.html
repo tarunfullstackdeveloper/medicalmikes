@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2000mg CBG + CBD Oil — Medical Mike's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F3EE; --ivory-warm: #F0EBE3; --parchment: #E8E3DA; --cream: #FAF8F5; --white: #FFFFFF;
+    --earth-deep: #1C1A17; --earth: #2A2520; --earth-mid: #3E3830; --earth-warm: #5C5347; --soil: #6B5D4F; --soil-light: #8A7B6B; --clay: #9E8D7B; --sand: #C4B5A3;
+    --green-deep: #1E3A1E; --green: #2E5A2E; --green-mid: #4A7A45; --green-sage: #5A7A52; --green-leaf: #6B9E60; --green-pale: #A8C49E; --green-wash: #EEF2EB;
+    --gold: #C4A265; --gold-light: #D4B87A; --gold-muted: #A08550;
+    --text: #1C1A17; --text-mid: #4A4440; --text-muted: #7A7470; --text-light: #9E9890; --border: #DDD8CF; --border-light: #EDE8E0;
+    --font-serif: 'EB Garamond', Georgia, serif; --font-sans: 'Outfit', -apple-system, sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* ═══ TOPBAR ═══ */
+  .topbar { background: var(--earth-deep); color: var(--sand); text-align: center; padding: 0.55rem 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; }
+
+  /* ═══ NAV ═══ */
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(246,243,238,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 1.2rem 3rem; }
+  .logo-img { display: block; height: 32px; width: auto; }
+  .logo-img--footer { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+  .nav-center { display: flex; gap: 2.5rem; }
+  .nav-center a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; transition: color 0.3s; }
+  .nav-center a:hover { color: var(--text); }
+  .nav-right { display: flex; gap: 1.5rem; }
+  .nav-right a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 300; transition: color 0.3s; }
+
+  /* ═══ BREADCRUMB ═══ */
+  .breadcrumb { max-width: 1400px; margin: 0 auto; padding: 1.5rem 3rem 0; font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-light); letter-spacing: 0.08em; }
+  .breadcrumb a { color: var(--text-muted); transition: color 0.3s; }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb span { margin: 0 0.5rem; color: var(--border); }
+
+  /* ═══ PRODUCT LAYOUT ═══ */
+  .product { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; max-width: 1400px; margin: 0 auto; padding: 2rem 3rem 5rem; }
+  .product-gallery { position: sticky; top: 120px; align-self: start; }
+  .product-main-img { background: var(--green-deep); border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 3rem; min-height: 550px; }
+  .product-main-img img { max-height: 420px; width: auto; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.2)); }
+  .product-thumbs { display: flex; gap: 0.75rem; margin-top: 1rem; }
+  .product-thumbs div { width: 80px; height: 80px; border-radius: 8px; background: var(--ivory-warm); display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s; }
+  .product-thumbs div.active, .product-thumbs div:hover { border-color: var(--green-sage); }
+  .product-thumbs img { max-height: 50px; width: auto; }
+
+  /* ═══ PRODUCT INFO ═══ */
+  .product-info { padding-top: 1rem; }
+  .product-tag { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.75rem; }
+  .product-title { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 400; line-height: 1.15; color: var(--earth-deep); margin-bottom: 0.5rem; }
+  .product-subtitle { font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .product-price-row { margin-bottom: 1.5rem; }
+  .product-price { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 500; color: var(--earth-deep); margin-bottom: 0.15rem; }
+  .product-price-note { font-size: 0.72rem; color: var(--text-light); }
+
+  .product-divider { border: none; border-top: 1px solid var(--border-light); margin: 2rem 0; }
+
+  /* ATC Section — above the fold priority */
+  .atc-section { margin-bottom: 1.5rem; }
+  .quantity-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .qty-control { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+  .qty-control button { width: 38px; height: 48px; font-size: 1rem; color: var(--text-mid); background: var(--cream); border: none; cursor: pointer; transition: background 0.2s; }
+  .qty-control button:hover { background: var(--parchment); }
+  .qty-control input { width: 42px; height: 48px; text-align: center; border: none; background: transparent; font-family: var(--font-sans); font-size: 0.88rem; color: var(--text); }
+  .btn-atc { flex: 1; padding: 0 2rem; height: 48px; background: var(--green-deep); color: var(--ivory); font-family: var(--font-sans); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.35s; }
+  .btn-atc:hover { background: var(--green); }
+  .btn-buy-now {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    background: var(--gold);
+    color: var(--earth-deep);
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.3s;
+  }
+  .btn-buy-now:hover { background: var(--gold-light); }
+  .product-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .spec { padding: 1rem; background: var(--cream); border-radius: 8px; }
+  .spec-label { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.3rem; }
+  .spec-value { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; color: var(--earth-deep); }
+
+  /* Description */
+  .product-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 2rem; }
+  .product-desc p { margin-bottom: 1rem; }
+
+  /* Trust badges */
+  .trust-row { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+  .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--text-muted); }
+  .trust-icon { width: 18px; height: 18px; border-radius: 50%; background: var(--green-wash); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--green-sage); }
+
+  /* Accordion */
+  .accordion { border-top: 1px solid var(--border-light); }
+  .accordion-item { border-bottom: 1px solid var(--border-light); }
+  .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; cursor: pointer; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--earth-deep); }
+  .accordion-header::after { content: '+'; font-family: var(--font-sans); font-size: 1.2rem; font-weight: 200; color: var(--text-muted); transition: transform 0.3s; }
+  .accordion-item.open .accordion-header::after { content: '−'; }
+  .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .accordion-item.open .accordion-body { max-height: 500px; }
+  .accordion-content { padding: 0 0 1.5rem; font-size: 0.88rem; line-height: 1.7; color: var(--text-mid); }
+  .accordion-content ul { margin-left: 1.2rem; margin-top: 0.5rem; }
+  .accordion-content li { margin-bottom: 0.3rem; }
+
+  /* ═══ YOU MAY ALSO LIKE ═══ */
+  .related { max-width: 1400px; margin: 0 auto; padding: 4rem 3rem 5rem; }
+  .related-header { text-align: center; margin-bottom: 3rem; }
+  .related-eyebrow { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.5rem; }
+  .related-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .related-card { text-align: center; }
+  .related-card-img { background: var(--ivory-warm); border-radius: 12px; padding: 2rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+  .related-card-img img { max-height: 200px; width: auto; }
+  .related-card-name { font-family: var(--font-serif); font-size: 1.05rem; margin-bottom: 0.25rem; }
+  .related-card-price { font-family: var(--font-serif); font-size: 1rem; color: var(--text-muted); }
+
+  /* ═══ FOOTER ═══ */
+  .footer { background: var(--earth); padding: 4rem 3rem 2rem; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.6; color: var(--soil-light); margin: 1rem 0; }
+  .footer-phone { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold); }
+  .footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--soil-light); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a { font-size: 0.85rem; color: var(--clay); transition: color 0.3s; }
+  .footer-col a:hover { color: var(--ivory); }
+  .footer-bottom { border-top: 1px solid var(--earth-mid); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 0.68rem; color: var(--soil); }
+
+  @media (max-width: 900px) {
+    .product { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem; }
+    .product-gallery { position: static; }
+    .nav-inner { padding: 1rem 1.5rem; }
+    .nav-center { gap: 1.2rem; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders Over $75 · Grown & Bottled in New York</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo-link"><img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img"></a>
+    <div class="nav-center">
+      <a href="#collection">Shop</a>
+      <a href="mm-our-story.html">Our Story</a>
+      <a href="mm-lab-results.html">Lab Results</a>
+      <a href="mm-journal.html">Journal</a>
+    </div>
+    <div class="nav-right"><a href="/cart">Cart (0)</a></div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> <span>/</span> <a href="/collections/best-sellers">Shop</a> <span>/</span> 2000mg CBG Oil
+</div>
+
+<section class="product">
+  <div class="product-gallery">
+    <div class="product-main-img">
+      <img src="https://medicalmikes.com/cdn/shop/files/cbg_2024.webp?v=1729795687&width=800" alt="2000mg CBG + CBD Oil">
+    </div>
+    
+  </div>
+
+  <div class="product-info">
+    <div class="product-tag">No. 02 · Full Spectrum</div>
+    <h1 class="product-title">2000mg CBG + CBD Oil</h1>
+    <p class="product-subtitle">Morning Clarity · The Mother Cannabinoid</p>
+    
+    <div class="product-price-row">
+      <div class="product-price">$109.00</div>
+      <p class="product-price-note">66mg CBG + CBD per serving · 30 servings</p>
+    </div>
+
+    <div class="atc-section">
+      <div class="quantity-row">
+        <div class="qty-control">
+          <button onclick="this.nextElementSibling.stepDown()">−</button>
+          <input type="number" value="1" min="1" max="10">
+          <button onclick="this.previousElementSibling.stepUp()">+</button>
+        </div>
+        <button class="btn-atc">Add to Cart — $109.00</button>
+      </div>
+      <a href="/checkout" class="btn-buy-now">Buy Now</a>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">✓</div> Free shipping</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Lab tested</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Organic hemp</div>
+    </div>
+
+    <hr class="product-divider">
+
+    <div class="product-specs">
+      <div class="spec"><div class="spec-label">Strength</div><div class="spec-value">2,000mg CBG+CBD</div></div>
+      <div class="spec"><div class="spec-label">Per Serving</div><div class="spec-value">66mg / 1mL</div></div>
+      <div class="spec"><div class="spec-label">Spectrum</div><div class="spec-value">Full Spectrum</div></div>
+      <div class="spec"><div class="spec-label">THC Content</div><div class="spec-value">&lt;0.3%</div></div>
+    </div>
+
+    <div class="product-desc">
+      <p>CBG is the mother cannabinoid — the precursor from which all other cannabinoids are born. Combined with CBD, this formula delivers morning clarity, focus, and a calm alertness without caffeine or jitters.</p>
+      <p>Our CBG oil is extracted from specially cultivated hemp harvested early in the growth cycle, when CBG concentrations are at their peak. Full spectrum means you get the complete plant profile working together.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item open">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">Ingredients</div>
+        <div class="accordion-body"><div class="accordion-content">
+          Organic hemp extract (CBG + CBD rich, aerial parts), MCT oil (fractionated coconut oil). No artificial flavors, sweeteners, or preservatives.
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">How to Use</div>
+        <div class="accordion-body"><div class="accordion-content">
+          Shake well before use. Fill the dropper to 1mL and place under your tongue. Hold for 60 seconds, then swallow. Best taken in the morning or early afternoon for focus and clarity.
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">Lab Results</div>
+        <div class="accordion-body"><div class="accordion-content">
+          Every batch is independently tested for potency, pesticides, heavy metals, residual solvents, and microbial contaminants. <a href="/pages/lab-results" style="color:var(--green-sage); text-decoration: underline;">View the full certificate of analysis →</a>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">Shipping & Returns</div>
+        <div class="accordion-body"><div class="accordion-content">
+          Free shipping on orders over $75. Orders ship within 3 business days from New York. Delivery takes 1–5 business days depending on location. Not satisfied? Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f575a5353507f525a5b565c5e535256545a4c115c5052">[email&#160;protected]</a> for a full refund.
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="related-header">
+    <div class="related-eyebrow">The Collection</div>
+    <h2 class="related-title">You may also like</h2>
+  </div>
+  <div class="related-grid">
+    <a href="/products/6000mg-full-spectrum-cbd-oil" class="related-card">
+      <div class="related-card-img"><img src="https://medicalmikes.com/cdn/shop/files/6000mg_cbd_oil.png?v=1747949823&width=400" alt="6000mg CBD Oil"></div>
+      <div class="related-card-name">6000mg CBD Oil</div>
+      <div class="related-card-price">$119.00</div>
+    </a>
+    <a href="/products/full-spectrum-cbn-cbd-oil" class="related-card">
+      <div class="related-card-img"><img src="https://medicalmikes.com/cdn/shop/files/cbn_2024.webp?v=1729795773&width=400" alt="1200mg CBD + CBN Oil"></div>
+      <div class="related-card-name">1200mg CBD + CBN Oil</div>
+      <div class="related-card-price">$89.00</div>
+    </a>
+    <a href="/products/full-spectrum-cbd-gummies" class="related-card">
+      <div class="related-card-img"><img src="https://medicalmikes.com/cdn/shop/files/GUMMYJARMOCKUP_gummy-min.png?v=1729795732&width=400" alt="750mg CBD Gummies"></div>
+      <div class="related-card-name">750mg CBD Gummies</div>
+      <div class="related-card-price">$69.00</div>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://medicalmikes.com/cdn/shop/files/header_logo.png?v=1686852783&width=440" alt="Medical Mike's" class="logo-img logo-img--footer">
+        <p>Organic full-spectrum CBD, grown and bottled on our New York farm. Four products. Nothing unnecessary.</p>
+        <a href="tel:9148615533" class="footer-phone">914.861.5533</a>
+      </div>
+       <div class="footer-col"><h4>Shop</h4><ul><li><a href="mm-product-page.html">6000mg CBD Oil</a></li><li><a href="mm-product-cbg.html">2000mg CBG Oil</a></li><li><a href="mm-product-cbn.html">1200mg CBN Oil</a></li><li><a href="mm-product-gummies.html">CBD Gummies</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="mm-our-story.html">Our Story</a></li><li><a href="mm-lab-results.html">Lab Results</a></li><li><a href="mm-cbg-vs-cbd.html">CBG vs CBD</a></li><li><a href="/blogs/news">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="mm-contact">Contact</a></li><li><a href="/policies/shipping-policy">Shipping</a></li><li><a href="/policies/refund-policy">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+   </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Medical Mike's. All Right
